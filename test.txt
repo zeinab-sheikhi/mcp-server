@@ -1,0 +1,11 @@
+Server response: type='text' text="9 validation errors for 
+CallToolResult\ncontent.0.TextContent\n  
+Input should be a valid dictionary or instance of TextContent 
+[type=model_type, input_value=('meta', None), 
+input_type=tuple]\n    
+For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.0.ImageContent\n  
+Input should be a valid dictionary or instance of ImageContent [type=model_type, input_value=('meta', None), input_type=tuple]\n    
+For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.0.EmbeddedResource\n  
+Input should be a valid dictionary or instance of EmbeddedResource [type=model_type, input_value=('meta', None), input_type=tuple]\n    
+For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.1.TextContent\n  
+Input should be a valid dictionary or instance of TextContent [type=model_type, input_value=('content', [TextContent(...w?', annotations=None)]), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.1.ImageContent\n  Input should be a valid dictionary or instance of ImageContent [type=model_type, input_value=('content', [TextContent(...w?', annotations=None)]), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.1.EmbeddedResource\n  Input should be a valid dictionary or instance of EmbeddedResource [type=model_type, input_value=('content', [TextContent(...w?', annotations=None)]), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.2.TextContent\n  Input should be a valid dictionary or instance of TextContent [type=model_type, input_value=('isError', False), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.2.ImageContent\n  Input should be a valid dictionary or instance of ImageContent [type=model_type, input_value=('isError', False), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type\ncontent.2.EmbeddedResource\n  Input should be a valid dictionary or instance of EmbeddedResource [type=model_type, input_value=('isError', False), input_type=tuple]\n    For further information visit https://errors.pydantic.dev/2.11/v/model_type" annotations=None

@@ -1,0 +1,13 @@
+[project]
+name = "mcp-server"
+version = "0.1.0"
+description = "A minimal MCP server with an echo tool, using Starlette, SSE, and MCP."
+authors = [
+    { name="Your Name", email="your.email@example.com" }
+]
+dependencies = [
+    "mcp",          # MCP protocol core
+    "starlette",    # ASGI app and routing
+    "uvicorn",      # ASGI server
+]
+requires-python = ">=3.11"
