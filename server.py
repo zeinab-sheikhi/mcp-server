@@ -1,7 +1,20 @@
 from mcp.server import Server, NotificationOptions
 from mcp.server.models import InitializationOptions
 
-import mcp.types as types
+from mcp.types import (
+    Tool, 
+    TextContent,
+)
+from pydantic import BaseModel
+from enum import Enum
+
+
+class EchoTool(BaseModel):
+    message: str
+
+
+class Tools(str, Enum):
+    ECHO = "echo"
 
 
 def create_server():
@@ -17,42 +30,36 @@ def create_server():
     )
 
     @server.call_tool()
-    async def handle_call_tool(name: str, arguments: dict | None):
+    async def call_tool(name: str, arguments: dict | None) -> list[TextContent]:
         """
         Handle tool execution requests.
         Tools can modify server state and notify clients of changes.
         """
-        try:
-            print(f"handle_call_tool {name}")
-            if name == "echo":
+        match name:
+            case Tools.ECHO:
                 message = arguments.get("message")
-                response = [
-                    types.TextContent(
+                return [
+                    TextContent(
                         type="text",
                         text=str(message),
                     )
                 ]
-                return response
-        except Exception as e:
-            print(f"Error handling tool call {name}: {e}")
-            raise e
-        
+            case _:
+                raise ValueError(f"Unknown tool: {name}")
+
+
     
     @server.list_tools()
-    async def handle_list_tools() -> list[types.Tool]:
+    async def list_tools() -> list[Tool]:
         """
         List available tools.
         Each tool specifies its arguments using JSON Schema validation.
         """
         return [
-            types.Tool(
-                name="echo",
+            Tool(
+                name=Tools.ECHO,
                 description="Echo a message back to the client",
-                inputSchema={
-                    "type": "object",
-                    "properties": {"message": {"type": "string"}},
-                    "required": ["message"],
-                },
+                inputSchema=EchoTool.schema()
             )
         ]
     
